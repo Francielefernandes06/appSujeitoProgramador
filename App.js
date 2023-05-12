@@ -5,6 +5,7 @@ import States from './src/telas/States';
 import GroupStyles from './src/telas/GroupStyles';
 import Propriedades from './src/telas/Propriedades';
 import Cliclo from './src/telas/Ciclo';
+import Dados from './src/telas/Dados';
 
 
 function App(){
@@ -19,8 +20,8 @@ function App(){
 
         //<GroupStyles/>
         //<Propriedades/>
-        <Cliclo/>
-        
+        //<Cliclo/>
+        <Dados/>        
     );
 }
 
