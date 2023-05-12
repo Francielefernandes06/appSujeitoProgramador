@@ -1,24 +1,31 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 
-import { View, Text,TextInput, Button , StyleSheet} from "react-native";
+import { View, Text, TextInput, Button, StyleSheet } from "react-native";
 
-function Dados(){
-  const [nome, setNome]= useState();
+function Dados() {
+  const [nome, setNome] = useState();
+  const [input, setInput] = useState();
 
-  function pegaNome(texto){
-    if(texto.length > 0){
-      setNome('Bem vindo: '+texto)
-    }else{
+  function entrar() {
+    pegaNome(input)
+  }
+
+  function pegaNome(texto) {
+    if (texto.length > 0) {
+      setNome('Bem vindo: ' + texto)
+    } else {
       setNome('')
     }
-    
+
   }
-  return(
+  return (
     <View style={styles.container}>
-      <Text>{nome}</Text>
+      <Text style={styles.texto}>{nome}</Text>
       <TextInput style={styles.input}
-      onChangeText={(texto)=>pegaNome(texto)} />
-        
+        onChangeText={(texto) => setInput(texto)} />
+
+      <Button title="Entrar" onPress={entrar} />
+
     </View>
   );
 
@@ -27,16 +34,22 @@ function Dados(){
 export default Dados;
 
 const styles = StyleSheet.create({
-  container:{
-    flex:1,
-    justifyContent:'center',
-    alignItems:'center'
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
   },
-  input:{
-    height:40,
-    width:200,
-    borderWidth:1,
-    borderColor:'#fff',
-    margin:10,
+  input: {
+    height: 40,
+    width: 200,
+    borderWidth: 1,
+    borderColor: '#fff',
+    margin: 10,
+  },
+  texto:{
+    fontSize: 20,
+    color: '#fff'
+
+
   }
 });
